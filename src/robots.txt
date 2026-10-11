@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://theverandajournal.com/sitemap.xml

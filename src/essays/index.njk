@@ -1,0 +1,17 @@
+---
+layout: base.njk
+title: Essays
+description: Every essay published on The Veranda, newest first.
+permalink: /essays/
+---
+<div class="page">
+  <h1>Essays</h1>
+  {%- set yr = "" %}
+  <ol class="toc">
+  {%- for p in collections.essays %}
+    {%- set y = p.date.getUTCFullYear() %}
+    {%- if y != yr %}</ol><div class="archive-year">{{ y }}</div><ol class="toc">{% set yr = y %}{% endif %}
+    <li style="grid-template-columns:minmax(0,1fr) 120px"><div><h4><a href="{{ p.url }}">{{ p.data.title }}</a></h4><p>{{ p.data.description }}</p></div><span class="time label">{{ p.date | longDate }}</span></li>
+  {%- endfor %}
+  </ol>
+</div>

@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en-GH">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+{%- set pageTitle = (title + " · " + site.title) if title else (site.title + " · Notes on Ghana's built environment") %}
+{%- set pageDesc = description or site.description %}
+{%- set shareImg = (image or "/media/og-default.png") | abs(site.url) %}
+<title>{{ pageTitle }}</title>
+<meta name="description" content="{{ pageDesc }}">
+<link rel="canonical" href="{{ page.url | abs(site.url) }}">
+<meta property="og:site_name" content="{{ site.title }}">
+<meta property="og:type" content="{{ 'article' if layout == 'post.njk' else 'website' }}">
+<meta property="og:title" content="{{ title or site.title }}">
+<meta property="og:description" content="{{ pageDesc }}">
+<meta property="og:url" content="{{ page.url | abs(site.url) }}">
+<meta property="og:image" content="{{ shareImg }}">
+<meta name="twitter:card" content="summary_large_image">
+{%- if site.x_handle %}<meta name="twitter:site" content="@{{ site.x_handle }}">{% endif %}
+<meta name="author" content="{{ site.author }}">
+<meta name="theme-color" content="#efe6d8">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="/feed.xml">
+<link rel="preload" href="/assets/fonts/cormorant-garamond-latin-300-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+<a class="skip label" href="#main">Skip to content</a>
+<div class="strip"><div class="wrap label">
+  <span>{{ site.issue }}</span>
+  <span>{{ site.location }}</span>
+  <span>Notes on Ghana's built environment</span>
+</div></div>
+
+<header class="mast wrap{% if mast != 'large' %} small{% endif %}">
+  <a class="home" href="/" aria-label="{{ site.title }} home">
+    <svg class="emblem" viewBox="0 0 42 42" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2.4"><rect x="1.2" y="1.2" width="39.6" height="39.6"/><circle cx="21" cy="21" r="13"/><path d="M21 1.2v6.8M21 34v6.8M1.2 21H8M34 21h6.8"/></g></svg>
+    <div class="name">The <em>Veranda</em></div>
+  </a>
+  <p class="motto">{{ site.motto }}</p>
+  <nav class="sections label" aria-label="Main">
+    <a href="/essays/"{% if page.url.startsWith('/essays/') %} aria-current="page"{% endif %}>Essays</a>
+    <a href="/about/"{% if page.url == '/about/' %} aria-current="page"{% endif %}>About</a>
+    <a href="#letter">The Letter</a>
+    <a href="/feed.xml">RSS</a>
+  </nav>
+</header>
+
+<main id="main">
+{{ content | safe }}
+</main>
+
+{% include "band.njk" %}
+{% include "letter.njk" %}
+
+<footer class="site"><div class="wrap label">
+  <span>© {{ "now" | year }} {{ site.title }} · {{ site.author }}</span>
+  <span>
+    {%- if site.linkedin %}<a href="{{ site.linkedin }}" rel="noopener">LinkedIn</a> · {% endif -%}
+    {%- if site.x_handle %}<a href="https://x.com/{{ site.x_handle }}" rel="noopener">X</a> · {% endif -%}
+    <a href="/feed.xml">RSS</a>
+  </span>
+  <span>Accra, Ghana</span>
+</div></footer>
+{% if mast == 'large' %}<script src="/assets/js/plate.js" defer></script>{% endif %}
+</body>
+</html>

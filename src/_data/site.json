@@ -1,0 +1,19 @@
+{
+  "title": "The Veranda",
+  "motto": "Where we sit, talk and watch the street.",
+  "description": "Essays on Ghana's built environment: climate, design, materials and the way we build. Written by Joseph Eguei Yartey.",
+  "url": "https://theverandajournal.com",
+  "author": "Joseph Eguei Yartey",
+  "author_role": "Construction technologist",
+  "author_initials": "JY",
+  "location": "Accra · 5.60° N, 0.19° W",
+  "issue": "Issue Nº 01 · October 2026",
+  "about_short": "In Ghana, the veranda is where people sit, talk and watch the street go by. This journal is a place to do the same with the buildings, streets and cities around us.",
+  "linkedin": "",
+  "x_handle": "",
+  "upcoming": [
+    { "title": "Laterite, earth and the materials we overlook", "category": "Materials" },
+    { "title": "Accra floods every year. Our sites are part of it.", "category": "The City" },
+    { "title": "The parlour nobody sits in", "category": "Design" }
+  ]
+}

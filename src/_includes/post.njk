@@ -1,0 +1,61 @@
+---
+layout: base.njk
+---
+{%- set mins = content | readingTime %}
+<article>
+  <header class="essay-head wrap">
+    <div class="kicker label">{{ category or "Essay" }} · {{ page.date | longDate }}</div>
+    <h1>{{ title }}</h1>
+    {% if description %}<p class="dek">{{ description }}</p>{% endif %}
+    <div class="byline">
+      <div class="mono" aria-hidden="true">{{ site.author_initials }}</div>
+      <div><b>{{ site.author }}</b><small>{{ site.author_role }} · {{ mins }} min read</small></div>
+    </div>
+  </header>
+
+  {% if image %}
+  <figure class="essay-cover wrap">
+    <div class="plate"><img src="{{ image }}" alt="{{ image_caption or title }}"></div>
+    {% if image_caption %}<figcaption class="figcap"><span>{{ image_caption }}</span></figcaption>{% endif %}
+  </figure>
+  {% endif %}
+
+  <div class="prose">
+{{ content | safe }}
+  </div>
+
+  <footer class="essay-foot">
+    {%- set link = page.url | abs(site.url) %}
+    <div class="share">
+      <span class="label">Share</span>
+      <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ link | urlencode }}" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://x.com/intent/post?text={{ title | urlencode }}&url={{ link | urlencode }}{% if site.x_handle %}&via={{ site.x_handle }}{% endif %}" target="_blank" rel="noopener">X</a>
+      <a href="https://wa.me/?text={{ (title + ' ' + link) | urlencode }}" target="_blank" rel="noopener">WhatsApp</a>
+      <button type="button" data-copy="{{ link }}">Copy link</button>
+    </div>
+    <div class="author-card">
+      <div class="mono" aria-hidden="true">{{ site.author_initials }}</div>
+      <div><b>{{ site.author }}</b><p>{{ site.author_role }} writing on Ghana's built environment from Accra. <a href="/about/">About The Veranda</a>.</p></div>
+    </div>
+  </footer>
+</article>
+
+{%- set others = collections.essays | excludeUrl(page.url) %}
+{% if others.length %}
+<section class="contents next">
+  <div class="wrap">
+    <header><h3>More from the veranda</h3><p><a href="/essays/">All essays →</a></p></header>
+    <ol class="toc">
+    {%- for p in others | head(3) %}
+      <li><span class="num">{{ loop.index | roman }}</span><div><h4><a href="{{ p.url }}">{{ p.data.title }}</a></h4><p>{{ p.data.description }}</p></div><span class="cat label">{{ p.data.category }}</span><span class="time label">{{ p.date | longDate }}</span></li>
+    {%- endfor %}
+    </ol>
+  </div>
+</section>
+{% endif %}
+<script>
+document.querySelectorAll('[data-copy]').forEach(b=>b.addEventListener('click',async()=>{
+  try{await navigator.clipboard.writeText(b.dataset.copy);b.textContent='Link copied';}catch(e){b.textContent=b.dataset.copy;}
+  setTimeout(()=>b.textContent='Copy link',2500);
+}));
+</script>

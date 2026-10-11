@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 360" width="1800" height="720" role="img" aria-label="Schematic section of a courtyard house showing roofs, verandas, a central courtyard, sun angle and cross-ventilation">
+          <rect width="900" height="360" fill="#f5eee2"/><defs>
+            <pattern id="hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="8" stroke="#7b6857" stroke-width="1"/></pattern>
+            <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#9a4428"/></marker>
+          </defs>
+          <!-- ground -->
+          <rect x="20" y="300" width="860" height="14" fill="url(#hatch)"/>
+          <line x1="20" y1="300" x2="880" y2="300" stroke="#2a1e16" stroke-width="2"/>
+          <!-- sun -->
+          <circle cx="760" cy="44" r="16" fill="none" stroke="#b98a46" stroke-width="2"/>
+          <g stroke="#b98a46" stroke-width="1.2" stroke-dasharray="5 6" fill="none">
+            <line x1="748" y1="56" x2="470" y2="300"/><line x1="744" y1="52" x2="520" y2="300"/><line x1="752" y1="60" x2="610" y2="210"/>
+          </g>
+          <!-- roofs -->
+          <g stroke="#2a1e16" stroke-width="6" stroke-linecap="square">
+            <line x1="100" y1="170" x2="335" y2="205"/><line x1="565" y1="205" x2="800" y2="170"/>
+          </g>
+          <!-- shade on veranda floors -->
+          <rect x="258" y="294" width="62" height="6" fill="#b98a46" opacity=".55"/>
+          <rect x="582" y="294" width="60" height="6" fill="#b98a46" opacity=".55"/>
+          <!-- walls (cut) -->
+          <g fill="#2a1e16">
+            <rect x="120" y="176" width="10" height="58"/><rect x="120" y="262" width="10" height="38"/>
+            <rect x="250" y="193" width="8" height="34"/>
+            <rect x="317" y="203" width="4" height="97"/>
+            <rect x="580" y="203" width="4" height="97"/>
+            <rect x="642" y="193" width="8" height="34"/>
+            <rect x="770" y="176" width="10" height="58"/><rect x="770" y="262" width="10" height="38"/>
+          </g>
+          <!-- tree -->
+          <line x1="452" y1="300" x2="452" y2="236" stroke="#2a1e16" stroke-width="3"/>
+          <g fill="none" stroke="#2a1e16" stroke-width="1.5"><circle cx="440" cy="222" r="20"/><circle cx="464" cy="214" r="22"/><circle cx="452" cy="200" r="18"/></g>
+          <!-- airflow -->
+          <g fill="none" stroke="#9a4428" stroke-width="2" stroke-dasharray="7 6">
+            <path d="M28 248 C 70 248, 100 248, 140 248 L 310 252 C 380 256, 420 262, 470 256 C 520 250, 560 250, 640 250 L 790 248 C 820 247, 850 244, 878 238" marker-end="url(#arr)"/>
+            <path d="M452 186 C 452 150, 470 112, 520 84" marker-end="url(#arr)"/>
+          </g>
+          <!-- labels -->
+          <g font-family="Hanken Grotesk, system-ui, sans-serif" font-size="11" letter-spacing="1.6" fill="#2a1e16">
+            <text x="168" y="290">ROOM</text>
+            <text x="263" y="288" font-size="10">VERANDA</text>
+            <text x="400" y="330">COURTYARD</text>
+            <text x="587" y="288" font-size="10">VERANDA</text>
+            <text x="690" y="290">ROOM</text>
+            <text x="30" y="236" fill="#9a4428">CROSS-VENTILATION</text>
+            <text x="530" y="80" fill="#9a4428">WARM AIR RISES OUT</text>
+            <text x="700" y="96" fill="#7b6857">AFTERNOON SUN</text>
+            <text x="30" y="346" fill="#7b6857">SECTION A–A · SCHEMATIC, NOT TO SCALE</text>
+          </g>
+        </svg>

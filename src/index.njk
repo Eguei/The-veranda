@@ -1,0 +1,44 @@
+---
+layout: base.njk
+mast: large
+---
+{%- set list = collections.essays | featuredFirst %}
+{%- set lead = list[0] %}
+<section class="cover wrap">
+  <div class="plate"><canvas id="wall" role="img" aria-label="Afternoon sunlight falling through a breeze-block screen onto a plaster wall"></canvas></div>
+  <div class="figcap"><span>Afternoon light through a breeze-block screen on a west-facing wall.</span><span class="label">Plate I</span></div>
+  {% if lead %}
+  <div class="cover-text">
+    <div>
+      <div class="kicker label">Cover essay · {{ lead.data.category or "Essay" }}</div>
+      <h2><a href="{{ lead.url }}">{{ lead.data.title }}</a></h2>
+    </div>
+    <div>
+      <p class="dek">{{ lead.data.description }}</p>
+      <div class="byline">
+        <div class="mono" aria-hidden="true">{{ site.author_initials }}</div>
+        <div><b>{{ site.author }}</b><small>{{ site.author_role }} · {{ lead.content | readingTime }} min read</small></div>
+      </div>
+      <a class="read label" href="{{ lead.url }}">Read the essay <span>→</span></a>
+    </div>
+  </div>
+  {% else %}
+  <div class="cover-text"><div><div class="kicker label">Coming soon</div><h2>The first essay is on its way.</h2></div></div>
+  {% endif %}
+</section>
+
+<section class="contents">
+  <div class="wrap">
+    <header><h3>{{ "In this issue" if list.length > 1 else "On the veranda" }}</h3><p>{% if list.length > 4 %}<a href="/essays/">All essays →</a>{% else %}Essays and what's coming next{% endif %}</p></header>
+    <ol class="toc">
+    {%- for p in list | head(4) %}
+      <li><span class="num">{{ loop.index | roman }}</span><div><h4><a href="{{ p.url }}">{{ p.data.title }}</a></h4><p>{{ p.data.description }}</p></div><span class="cat label">{{ p.data.category }}</span><span class="time label">{{ p.content | readingTime }} min</span></li>
+    {%- endfor %}
+    {%- if list.length < 4 %}
+      {%- for u in site.upcoming | head(4 - list.length) %}
+      <li class="soon"><span class="num">{{ (list.length + loop.index) | roman }}</span><div><h4>{{ u.title }}</h4><p>Coming soon</p></div><span class="cat label">{{ u.category }}</span><span class="time label">Next</span></li>
+      {%- endfor %}
+    {%- endif %}
+    </ol>
+  </div>
+</section>

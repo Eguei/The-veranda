@@ -1,0 +1,179 @@
+/* Self-hosted fonts (OFL licensed) */
+@font-face{font-family:"Cormorant Garamond";font-style:normal;font-weight:300;font-display:swap;src:url(/assets/fonts/cormorant-garamond-latin-300-normal.woff2) format("woff2")}
+@font-face{font-family:"Cormorant Garamond";font-style:italic;font-weight:300;font-display:swap;src:url(/assets/fonts/cormorant-garamond-latin-300-italic.woff2) format("woff2")}
+@font-face{font-family:"Cormorant Garamond";font-style:normal;font-weight:400;font-display:swap;src:url(/assets/fonts/cormorant-garamond-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"Cormorant Garamond";font-style:italic;font-weight:400;font-display:swap;src:url(/assets/fonts/cormorant-garamond-latin-400-italic.woff2) format("woff2")}
+@font-face{font-family:"Cormorant Garamond";font-style:normal;font-weight:500;font-display:swap;src:url(/assets/fonts/cormorant-garamond-latin-500-normal.woff2) format("woff2")}
+@font-face{font-family:"Newsreader";font-style:normal;font-weight:200 800;font-display:swap;src:url(/assets/fonts/newsreader-latin-opsz-normal.woff2) format("woff2")}
+@font-face{font-family:"Newsreader";font-style:italic;font-weight:200 800;font-display:swap;src:url(/assets/fonts/newsreader-latin-opsz-italic.woff2) format("woff2")}
+@font-face{font-family:"Hanken Grotesk";font-style:normal;font-weight:400;font-display:swap;src:url(/assets/fonts/hanken-grotesk-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"Hanken Grotesk";font-style:normal;font-weight:500;font-display:swap;src:url(/assets/fonts/hanken-grotesk-latin-500-normal.woff2) format("woff2")}
+@font-face{font-family:"Hanken Grotesk";font-style:normal;font-weight:600;font-display:swap;src:url(/assets/fonts/hanken-grotesk-latin-600-normal.woff2) format("woff2")}
+/* The Veranda — a printed quarterly on lime-plaster paper.
+   Wide cover, narrow reading column. Deliberately one warm look in every theme. */
+:root{
+  --plaster:#efe6d8;
+  --plaster-2:#e7dbc8;
+  --paper:#f5eee2;
+  --ink:#2a1e16;
+  --dust:#75624f;
+  --laterite:#9a4428;
+  --ochre:#b98a46;
+  --band-ink:#f4e7d6;
+  --rule:rgba(42,30,22,.16);
+  --display:"Cormorant Garamond","Cormorant",Garamond,"Times New Roman",serif;
+  --text:"Newsreader",Georgia,"Times New Roman",serif;
+  --label:"Hanken Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background-color:var(--plaster);color:var(--ink);font-family:var(--text);font-size:19px;line-height:1.65;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .2 0 0 0 0 .14 0 0 0 0 .1 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+img,svg,canvas{max-width:100%;display:block}
+a{color:inherit}
+::selection{background:var(--laterite);color:var(--band-ink)}
+:focus-visible{outline:2px solid var(--laterite);outline-offset:3px}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:clamp(16px,4vw,48px)}
+.label{font-family:var(--label);font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;line-height:1.4}
+.skip{position:absolute;left:-9999px}
+.skip:focus{left:16px;top:16px;background:var(--ink);color:var(--plaster);padding:8px 12px;z-index:9}
+
+/* strip */
+.strip{border-bottom:1px solid var(--rule)}
+.strip .wrap{display:flex;justify-content:space-between;gap:6px 24px;flex-wrap:wrap;padding-block:12px;color:var(--dust)}
+
+/* masthead */
+.mast{text-align:center;padding-block:clamp(32px,6vw,64px) 0}
+.mast a.home{text-decoration:none}
+.emblem{width:42px;height:42px;margin:0 auto 18px;color:var(--laterite)}
+.mast .name{font-family:var(--display);font-weight:300;font-size:clamp(56px,11vw,148px);line-height:.86;letter-spacing:-.02em;margin:0}
+.mast .name em{font-style:italic;font-weight:300}
+.mast .motto{font-family:var(--display);font-style:italic;font-size:clamp(19px,2.2vw,24px);color:var(--dust);margin:18px 0 0}
+nav.sections{display:flex;justify-content:center;flex-wrap:wrap;gap:6px clamp(16px,3vw,40px);margin-top:34px;padding-block:14px;border-block:1px solid var(--rule)}
+nav.sections a{text-decoration:none;padding:4px 0;border-bottom:1px solid transparent;transition:border-color .2s}
+nav.sections a:hover,nav.sections a[aria-current]{border-color:var(--laterite)}
+/* compact masthead on inner pages */
+.mast.small{padding-block:24px 0}
+.mast.small .emblem{width:30px;height:30px;margin-bottom:10px}
+.mast.small .name{font-size:clamp(40px,6vw,64px)}
+.mast.small .motto{display:none}
+.mast.small nav.sections{margin-top:20px}
+
+/* cover */
+.cover{padding-block:clamp(28px,5vw,56px) 0}
+.plate{position:relative;aspect-ratio:16/8;max-width:100%;background:#a98a6c;overflow:hidden}
+.plate canvas,.plate img{width:100%;height:100%;object-fit:cover}
+.figcap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:10px;color:var(--dust);font-size:14px;font-style:italic;line-height:1.4}
+.figcap .label{font-style:normal}
+.cover-text{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:clamp(24px,5vw,72px);padding-block:clamp(28px,4vw,48px) clamp(48px,7vw,88px);align-items:end}
+.kicker{color:var(--laterite);display:flex;align-items:center;gap:10px}
+.kicker::before{content:"";width:28px;height:1px;background:currentColor}
+.cover h2{font-family:var(--display);font-weight:300;font-size:clamp(42px,6.4vw,88px);line-height:.96;letter-spacing:-.015em;margin:16px 0 0;text-wrap:balance}
+.cover h2 a{text-decoration:none}
+.dek{font-size:clamp(18px,1.6vw,21px);line-height:1.55;margin:0 0 22px}
+.byline{display:flex;align-items:center;gap:14px;padding-top:18px;border-top:1px solid var(--rule)}
+.mono{width:44px;height:44px;border-radius:50%;background:var(--ink);color:var(--plaster);display:grid;place-items:center;font-family:var(--display);font-size:20px;flex:none}
+.byline b{display:block;font-weight:500;font-size:16px;line-height:1.3}
+.byline small{color:var(--dust);font-size:14px}
+.read{display:inline-flex;align-items:center;gap:10px;margin-top:22px;text-decoration:none;color:var(--laterite)}
+.read span{transition:transform .25s}
+.read:hover span{transform:translateX(4px)}
+
+/* contents */
+.contents{background:var(--plaster-2);padding-block:clamp(48px,7vw,88px)}
+.contents header{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:28px}
+.contents h3{font-family:var(--display);font-weight:400;font-size:clamp(32px,4vw,46px);margin:0;line-height:1}
+.contents header p{margin:0;color:var(--dust);font-style:italic}
+.contents header a{color:var(--laterite);text-decoration:none}
+.toc{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule)}
+.toc li{display:grid;grid-template-columns:64px minmax(0,1fr) 150px 110px;gap:20px;align-items:baseline;padding-block:24px;border-bottom:1px solid var(--rule);transition:background .25s;position:relative}
+.toc li:hover{background:rgba(255,255,255,.22)}
+.toc .num{font-family:var(--display);font-style:italic;font-size:26px;color:var(--laterite)}
+.toc h4{font-family:var(--display);font-weight:400;font-size:clamp(24px,2.6vw,32px);line-height:1.1;margin:0 0 6px;text-wrap:balance}
+.toc h4 a{text-decoration:none}
+.toc h4 a::after{content:"";position:absolute;inset:0}
+.toc p{margin:0;color:var(--dust);font-size:16px;line-height:1.5}
+.toc .cat,.toc .time{color:var(--dust)}
+.toc .time{text-align:right;font-variant-numeric:tabular-nums}
+.toc li.soon h4{color:var(--dust)}
+.toc li.soon:hover{background:none}
+
+/* essay page */
+.essay-head{text-align:center;max-width:900px;margin:0 auto;padding-block:clamp(40px,6vw,72px) clamp(28px,4vw,40px)}
+.essay-head .kicker{justify-content:center}
+.essay-head .kicker::after{content:"";width:28px;height:1px;background:currentColor}
+.essay-head h1{font-family:var(--display);font-weight:300;font-size:clamp(44px,7vw,92px);line-height:.98;letter-spacing:-.015em;margin:18px 0 22px;text-wrap:balance}
+.essay-head .dek{max-width:42ch;margin:0 auto 26px;color:var(--ink)}
+.essay-head .byline{justify-content:center;border:0;padding:0;text-align:left}
+.essay-cover{max-width:1180px;margin:0 auto clamp(40px,6vw,64px)}
+.prose{max-width:680px;margin:0 auto;padding-inline:clamp(16px,4vw,0px)}
+.prose>p:first-of-type::first-letter{font-family:var(--display);float:left;font-size:5.4em;line-height:.78;padding:.08em .08em 0 0;color:var(--laterite)}
+.prose>p:first-of-type::first-line{font-variant:small-caps;letter-spacing:.04em}
+.prose p{margin:0 0 1.15em;hyphens:auto}
+.prose h2{font-family:var(--display);font-weight:400;font-size:clamp(30px,3.4vw,38px);line-height:1.1;margin:2em 0 .6em;text-wrap:balance}
+.prose h3{font-family:var(--label);font-size:13px;letter-spacing:.14em;text-transform:uppercase;margin:2em 0 .8em}
+.prose strong{font-weight:600}
+.prose a{color:var(--laterite);text-underline-offset:3px;text-decoration-thickness:1px}
+.prose ul,.prose ol{padding-left:1.2em;margin:0 0 1.2em}
+.prose li{margin-bottom:.4em}
+.prose blockquote{margin:1.8em -6vw;padding:0;text-align:center;font-family:var(--display);font-style:italic;font-weight:300;font-size:clamp(28px,3.4vw,40px);line-height:1.18}
+.prose blockquote p{margin:0}
+.prose blockquote::before,.prose blockquote::after{content:"";display:block;width:40px;height:1px;background:var(--laterite);margin:22px auto}
+.prose hr{border:0;border-top:1px solid var(--rule);margin:3em 0 2em}
+.prose hr+p strong{font-family:var(--label);font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:600}
+.prose hr~ul{font-size:15px;line-height:1.5;color:var(--dust);list-style:none;padding:0}
+.prose hr~ul li{margin-bottom:.9em}
+.essay-fig{margin:2.4em -12vw;max-width:none}
+.essay-fig img{width:100%;height:auto;background:var(--paper);border:1px solid var(--rule)}
+.essay-fig figcaption{margin-top:12px;font-size:14px;line-height:1.45;color:var(--dust);font-style:italic;max-width:680px}
+@media (min-width:1300px){.essay-fig{margin-inline:-160px}}
+@media (max-width:900px){.essay-fig{margin-inline:0}.prose blockquote{margin-inline:0}}
+
+.essay-foot{max-width:680px;margin:clamp(40px,6vw,64px) auto 0;padding:28px clamp(16px,4vw,0px) 0;border-top:1px solid var(--ink);display:grid;gap:22px}
+.share{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.share .label{color:var(--dust);margin-right:6px}
+.share a,.share button{font:600 11px/1 var(--label);letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink);background:transparent;border:1px solid var(--ink);padding:10px 14px;cursor:pointer}
+.share a:hover,.share button:hover{background:var(--ink);color:var(--plaster)}
+.author-card{display:flex;gap:16px;align-items:flex-start}
+.author-card p{margin:4px 0 0;font-size:16px;color:var(--dust);line-height:1.5}
+.next{background:var(--plaster-2);margin-top:clamp(56px,8vw,96px)}
+
+/* band */
+.band{position:relative;background:var(--laterite);color:var(--band-ink);padding-block:clamp(56px,8vw,104px);overflow:hidden}
+.band::before{content:"";position:absolute;inset:0;opacity:.1;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72'%3E%3Cg fill='none' stroke='%23f4e7d6' stroke-width='5'%3E%3Crect x='2.5' y='2.5' width='67' height='67'/%3E%3Ccircle cx='36' cy='36' r='22'/%3E%3C/g%3E%3C/svg%3E");background-size:72px}
+.band .wrap{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:40px;align-items:start}
+.band .label{color:#f0cf9e}
+.band p.big{font-family:var(--display);font-weight:300;font-size:clamp(28px,3.8vw,48px);line-height:1.15;margin:0;text-wrap:balance}
+.band p.small{font-size:16px;opacity:.85;max-width:52ch;margin:20px 0 0}
+.band a{color:var(--band-ink)}
+
+/* letter */
+.letter{padding-block:clamp(48px,7vw,88px);text-align:center}
+.letter h3{font-family:var(--display);font-weight:400;font-size:clamp(30px,3.6vw,42px);margin:10px 0 8px;line-height:1.1}
+.letter p{color:var(--dust);margin:0 auto 24px;max-width:46ch}
+.signup{display:flex;max-width:460px;margin:0 auto;border:1px solid var(--ink)}
+.signup input[type=email]{flex:1;min-width:0;border:0;background:transparent;padding:14px 16px;font:16px var(--text);color:var(--ink)}
+.signup input::placeholder{color:var(--dust)}
+.signup button{border:0;background:var(--ink);color:var(--plaster);padding:0 20px;cursor:pointer}
+.hp{position:absolute;left:-9999px}
+
+/* simple pages */
+.page{max-width:680px;margin:0 auto;padding:clamp(40px,6vw,72px) clamp(16px,4vw,0px)}
+.page h1{font-family:var(--display);font-weight:300;font-size:clamp(44px,6vw,72px);line-height:1;margin:0 0 28px;text-align:center}
+.archive-year{font-family:var(--display);font-style:italic;font-size:28px;color:var(--laterite);margin:2em 0 .4em}
+
+footer.site{border-top:1px solid var(--rule)}
+footer.site .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px 24px;padding-block:22px;color:var(--dust)}
+footer.site a{text-decoration:none}
+footer.site a:hover{color:var(--laterite)}
+
+@media (max-width:900px){
+  .cover-text,.band .wrap{grid-template-columns:1fr}
+  .toc li{grid-template-columns:44px minmax(0,1fr);gap:6px 14px}
+  .toc .cat{grid-column:2;order:-1}
+  .toc .num{grid-row:span 2}
+  .toc .time{display:none}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
