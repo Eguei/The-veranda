@@ -1,0 +1,100 @@
+# Writing panel settings for Pages CMS (https://app.pagescms.org)
+media:
+  input: src/media
+  output: /media
+
+content:
+  - name: essays
+    label: Essays
+    type: collection
+    path: src/posts
+    format: yaml-frontmatter
+    filename: "{primary}.md"
+    view:
+      primary: title
+      sort: [date]
+      order: desc
+      fields: [title, category, date, draft]
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: description
+        label: Summary (shown under the title and on LinkedIn/X previews)
+        type: text
+        required: true
+      - name: date
+        label: Publish date
+        type: date
+        required: true
+      - name: category
+        label: Section
+        type: select
+        options:
+          values: [Climate, Design, Materials, The City, Housing, Policy, Notes from Site]
+      - name: image
+        label: Cover photo (wide, landscape)
+        type: image
+      - name: image_caption
+        label: Cover photo caption
+        type: string
+      - name: featured
+        label: Show as the cover essay on the home page
+        type: boolean
+      - name: draft
+        label: Draft (hide from the site)
+        type: boolean
+        default: true
+      - name: body
+        label: Essay
+        type: rich-text
+
+  - name: settings
+    label: Journal settings
+    type: file
+    path: src/_data/site.json
+    format: json
+    fields:
+      - name: title
+        label: Journal name
+        type: string
+      - name: motto
+        label: Motto
+        type: string
+      - name: description
+        label: Description (for Google and link previews)
+        type: text
+      - name: url
+        label: Website address
+        type: string
+      - name: author
+        type: string
+      - name: author_role
+        label: Author line
+        type: string
+      - name: author_initials
+        type: string
+      - name: location
+        type: string
+      - name: issue
+        label: Issue line (top of every page)
+        type: string
+      - name: about_short
+        label: About paragraph
+        type: text
+      - name: linkedin
+        label: LinkedIn profile link
+        type: string
+      - name: x_handle
+        label: X handle (without @)
+        type: string
+      - name: upcoming
+        label: Coming next (shown on the home page)
+        type: object
+        list: true
+        fields:
+          - name: title
+            type: string
+          - name: category
+            type: string
